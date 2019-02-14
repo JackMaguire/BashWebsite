@@ -6,17 +6,17 @@ tempfile=temp.html
 
 while true; do
 
-    cp ingredients/beginning $tempfile
+    cp html_ingredients/beginning $tempfile
 
     for script in scripts/*.sh; do
-	cat ingredients/seg1 >> $tempfile
+	cat html_ingredients/seg1 >> $tempfile
 	echo $script | awk -F/ '{print $NF}' >> $tempfile
-	cat ingredients/seg2 >> $tempfile
+	cat html_ingredients/seg2 >> $tempfile
 	bash $script | sed 's/$/<br>/g' >> $tempfile
-	cat ingredients/seg3 >> $tempfile
+	cat html_ingredients/seg3 >> $tempfile
     done
 
-    cat ingredients/end >> $tempfile
+    cat html_ingredients/end >> $tempfile
 
     mv $tempfile $file
 
